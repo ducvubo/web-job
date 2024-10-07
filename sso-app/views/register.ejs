@@ -1,0 +1,324 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
+    <!-- MDB -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.3.2/mdb.min.css" rel="stylesheet" />
+    <title>Document</title>
+    <style>
+      .divider:after,
+      .divider:before {
+        content: '';
+        flex: 1;
+        height: 1px;
+        background: #eee;
+      }
+
+      .container-section {
+        position: relative;
+      }
+      .span-register {
+        font-size: 2rem;
+        font-weight: 500;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 10px;
+      }
+      .height-100 {
+        height: 100vh;
+      }
+
+      .card {
+        width: 400px;
+        border: none;
+        height: 300px;
+        box-shadow: 0px 5px 20px 0px #d2dae3;
+        z-index: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .card h6 {
+        /* color: red; */
+        font-size: 20px;
+      }
+
+      .inputs input {
+        width: 40px;
+        height: 40px;
+      }
+
+      input[type='number']::-webkit-inner-spin-button,
+      input[type='number']::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        margin: 0;
+      }
+
+      .card-2 {
+        background-color: #fff;
+        padding: 10px;
+        width: 350px;
+        height: 100px;
+        bottom: -50px;
+        left: 20px;
+        position: absolute;
+        border-radius: 5px;
+      }
+
+      .card-2 .content {
+        margin-top: 50px;
+      }
+
+      .card-2 .content a {
+        color: #0d6efd;
+      }
+
+      .form-control:focus {
+        box-shadow: none;
+        border: 2px solid #0d6efd;
+      }
+
+      .validate {
+        border-radius: 20px;
+        /* height: 40px;
+        background-color: #0d6efd;
+        border: 1px solid #0d6efd;
+        width: 140px; */
+      }
+      .otp-container {
+        display: none;
+        /* visibility: hidden; */
+        /* background-color: #0d6efd; */
+        height: 100vh;
+        width: 100vw;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        background-color: rgba(63, 61, 86, 0.7); /* Màu nền với độ trong suốt */
+        transform: translate(-50%, -50%);
+        backdrop-filter: blur(5px); 
+        transform: translate(-50%, -50%);
+      }
+    </style>
+  </head>
+  <body>
+    <section class="vh-100 container-section">
+      <div class="container py-5 h-100">
+        <div class="row d-flex align-items-center justify-content-center h-100">
+          <div class="col-md-8 col-lg-7 col-xl-6">
+            <img
+              src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg"
+              class="img-fluid"
+              alt="Phone image"
+            />
+          </div>
+          <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
+            <span class="span-register">Sign Up</span>
+
+            <div>
+              <!-- Email input -->
+              <div data-mdb-input-init class="form-outline mb-4">
+                <input type="email" class="form-control form-control-lg" id="email_register" />
+                <label class="form-label" for="form1Example13">Email address</label>
+              </div>
+              <div data-mdb-input-init class="form-outline mb-4">
+                <input type="password" class="form-control form-control-lg" id="password_register" />
+                <label class="form-label" for="form1Example13">Password</label>
+              </div>
+              <div data-mdb-input-init class="form-outline mb-4">
+                <input type="password" class="form-control form-control-lg" id="re_password_register" />
+                <label class="form-label" for="form1Example13">Re-password</label>
+              </div>
+              <div class="d-flex justify-content-around align-items-center mb-4">
+                <div>
+                  <span>Do you already have an account? <a href="login" id="link_login">Login</a></span>
+                </div>
+                <a href="#!">Forgot password?</a>
+              </div>
+              <button
+                id="btn_register"
+                data-mdb-button-init
+                data-mdb-ripple-init
+                class="btn btn-primary btn-lg btn-block"
+              >
+                Sign in
+              </button>
+
+              <div class="divider d-flex align-items-center my-4">
+                <p class="text-center fw-bold mx-3 mb-0 text-muted">OR</p>
+              </div>
+
+              <a
+                data-mdb-ripple-init
+                class="btn btn-primary btn-lg btn-block"
+                style="background-color: #ced4da"
+                href="/auth/login-with-google"
+                role="button"
+              >
+                <!-- <i class="fab fa-facebook-f me-2"></i> -->
+                <i class="fa-brands fa-google me-2"></i>
+                Continue with Google
+              </a>
+              <a
+                data-mdb-ripple-init
+                class="btn btn-primary btn-lg btn-block"
+                style="background-color: #3f3d56"
+                href="/auth/login-with-github"
+                role="button"
+              >
+                <!-- <i class="fab fa-twitter me-2"></i> -->
+                <i class="fa-brands fa-github me-2"></i>
+                Continue with Github</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="otp-container">
+      <div class="container height-100 d-flex justify-content-center align-items-center">
+        <div class="position-relative">
+          <div class="card p-2 text-center">
+            <h6>
+              <!-- Please enter the one time password <br />
+              to verify your account -->
+              Please enter OTP to verify your account
+            </h6>
+            <div><span>A code has been sent to</span> <small id="enter_email">email@gmail.com</small></div>
+            <div id="otp" class="inputs d-flex flex-row justify-content-center mt-2">
+              <input class="m-2 text-center form-control rounded" type="text" id="first" maxlength="1" />
+              <input class="m-2 text-center form-control rounded" type="text" id="second" maxlength="1" />
+              <input class="m-2 text-center form-control rounded" type="text" id="third" maxlength="1" />
+              <input class="m-2 text-center form-control rounded" type="text" id="fourth" maxlength="1" />
+              <input class="m-2 text-center form-control rounded" type="text" id="fifth" maxlength="1" />
+              <input class="m-2 text-center form-control rounded" type="text" id="sixth" maxlength="1" />
+            </div>
+            <div class="mt-4">
+              <button
+                id="verifyotp"
+                data-mdb-button-init
+                data-mdb-ripple-init
+                class="btn btn-primary px-4 btn-lg btn-block validate"
+              >
+                Verify
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+  <script>
+    const email_register = document.getElementById('email_register')
+    const password_register = document.getElementById('password_register')
+    const re_password_register = document.getElementById('re_password_register')
+    const btn_register = document.getElementById('btn_register')
+    const btn_verifyotp = document.getElementById('verifyotp')
+    const link_login = document.getElementById('link_login')
+    const otpContainer = document.querySelector('.otp-container')
+    const enter_email = document.getElementById('enter_email')
+    const urlParams = new URLSearchParams(window.location.search)
+    const serviceUrl = urlParams.get('serviceUrl')
+    const apiKey = urlParams.get('apikey')
+    localStorage.removeItem('serviceUrl')
+    localStorage.removeItem('apikey')
+    localStorage.setItem('serviceUrl', serviceUrl)
+    localStorage.setItem('apikey', apiKey)
+    link_login.href = `login?serviceUrl=${serviceUrl}&apikey=${apiKey}`
+    function OTPInput() {
+      const inputs = document.querySelectorAll('#otp > *[id]')
+      for (let i = 0; i < inputs.length; i++) {
+        inputs[i].addEventListener('keydown', function (event) {
+          if (event.key === 'Backspace') {
+            inputs[i].value = ''
+            if (i !== 0) inputs[i - 1].focus()
+          } else {
+            if (i === inputs.length - 1 && inputs[i].value !== '') {
+              return true
+            } else if (event.keyCode > 47 && event.keyCode < 58) {
+              inputs[i].value = event.key
+              if (i !== inputs.length - 1) inputs[i + 1].focus()
+              event.preventDefault()
+            } else if (event.keyCode > 64 && event.keyCode < 91) {
+              inputs[i].value = String.fromCharCode(event.keyCode)
+              if (i !== inputs.length - 1) inputs[i + 1].focus()
+              event.preventDefault()
+            }
+          }
+        })
+      }
+    }
+    OTPInput()
+    btn_register.addEventListener('click', async () => {
+      const email = email_register.value
+    
+      enter_email.textContent = email
+      if (email === '' || password_register.value === '' || re_password_register.value === '') {
+        alert('Vui lòng nhập đầy đủ')
+      } else {
+        await fetch('http://localhost:8080/auth/register', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ email })
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if(data.statusCode === 400) {
+              if(data.message[0] && data.error) alert(data.message[0])
+              else if(data.message) alert(data.message)
+            }
+            if (data.statusCode === 201) {
+              otpContainer.style.display = 'flex'
+            } 
+          })
+      }
+    })
+
+    btn_verifyotp.addEventListener('click', async () => {
+      const otpInputs = document.querySelectorAll('#otp > *[id]')
+      const email = email_register.value
+      const password = password_register.value
+      const re_password = re_password_register.value
+      let otpValue = ''
+      otpInputs.forEach((input) => {
+        otpValue += input.value
+      })
+      if(password !== re_password) {
+        alert('Password không trùng khớp')
+        return
+      }else if(password === '' || re_password === '' || email === '' || otpValue === '' || otpValue.length < 6) {
+        alert('Vui long nhap day du thong tin')
+        return
+      }
+      
+      await fetch('http://localhost:8080/email-otp', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({email, otp: otpValue, password })
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if(data.statusCode === 400) {
+           alert('OTP không hợp lệ')
+          }
+          if (data.statusCode === 201) {
+            window.location.href = `${serviceUrl}/auth?access_token=${data.data.access_token}&refresh_token=${data.data.refresh_token}`
+          }
+        })
+    })
+  </script>
+
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.3.2/mdb.umd.min.js"></script>
+</html>

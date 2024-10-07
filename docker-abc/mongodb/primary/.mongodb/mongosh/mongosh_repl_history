@@ -1,0 +1,22 @@
+rs.initiate(config, { force: true});
+var config = {"_id": "rs0","version": 1,"members": [{"_id": 1, "host": "jobsearch_mongo_primary:27017", "priority": 3},{"_id": 2, "host": "jobsearch_mongo_secondary-1:27017", "priority": 2},{"_id": 3, "host": "jobsearch_mongo_secondary-2:27017", "priority": 1}]};
+rs.initiate(config, { force: true});
+var config = {"_id": "rs0","version": 1,"members": [{"_id": 1, "host": "JobSeacrh_mongo_primary:27017", "priority": 3},{"_id": 2, "host": "JobSeacrh_mongo_secondary-1:27017", "priority": 2},{"_id": 3, "host": "JobSeacrh_mongo_secondary-2:27017", "priority": 1}]};
+rs.status()
+rs.initiate(config, { force: true});
+var config = {"_id": "rs0","version": 1,"members": [{"_id": 1, "host": "JobSeacrh_mongo_primary:27017", "priority": 3},{"_id": 2, "host": "JobSeacrh_mongo_secondary-1:27017", "priority": 2},{"_id": 3, "host": "JobSeacrh_mongo_secondary-2:27017", "priority": 1}]};
+rs.initiate(config, { force: true});
+var config = { "_id": "rs0", "version": 1, "members": [ { "_id": 1, "host": "JobSeacrh_mongo_primary:27017", "priority": 3 }, { "_id": 2, "host": "JobSeacrh_mongo_secondary-1:27017", "priority": 2 }, { "_id": 3, "host": "JobSeacrh_mongo_secondary-2:27017", "priority": 1 }] };
+rs.initiate(config, { force: true});
+var config = { "_id": "rs0", "version": 1, "members": [ { "_id": 1, "host": "JobSeacrh_mongo_primary:27017", "priority": 3 }, { "_id": 2, "host": "JobSeacrh_mongo_secondary-1:27017", "priority": 2 }, { "_id": 3, "host": "JobSeacrh_mongo_secondary-2:27017", "priority": 1 }] };
+show dbs
+rs.status()
+rs.initiate(config, { force: true});
+var config = { "_id": "rs0", "version": 1, "members": [ { "_id": 1, "host": "JobSeacrh_mongo_primary:27017", "priority": 3 }, { "_id": 2, "host": "JobSeacrh_mongo_secondary-1:27017", "priority": 2 }, { "_id": 3, "host": "JobSeacrh_mongo_secondary-2:27017", "priority": 1 }] };
+rs.initiate(config, { force: true});
+var config = {"_id":"rs0","version":1,"members":[{"_id":1,"host":"mongo-primary:27001","priority":3},{"_id":2,"host":"mongo_secondary-1:27002","priority":2},{"_id":3,"host":"mongo_secondary-2:27003","priority":1}]};
+rs.initiate(config, { force: true});
+var config = {"_id":"rs0","version":1,"members":[{"_id":1,"host":"JobSeacrh_mongo_primary:27001","priority":3},{"_id":2,"host":"JobSeacrh_mongo_secondary-1:27002","priority":2},{"_id":3,"host":"JobSeacrh_mongo_secondary-2:27003","priority":1}]};
+var config = {
+clear
+rs.status()

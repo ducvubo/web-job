@@ -1,0 +1,70 @@
+version: "3.8"
+
+services:
+  mongo-primary:
+    image: mongo
+    container_name: JobSeacrh_mongo_primary
+    ports:
+      - 27001:27017
+    command: mongod --replSet "rs0"
+    environment:
+      - MONGO_INITDB_REPLICASET=rs0
+    volumes:
+      - ./mongodb/primary:/data/db
+    restart: always
+    networks:
+      - mongo_replica
+
+  mongo_secondary-1:
+    image: mongo
+    container_name: JobSeacrh_mongo_secondary-1
+    ports:
+      - 27002:27017
+    command: mongod --replSet "rs0"
+    environment:
+      - MONGO_INITDB_REPLICASET=rs0
+    volumes:
+      - ./mongodb/secondary_1:/data/db
+    restart: always
+    networks:
+      - mongo_replica
+
+  mongo_secondary-2:
+    image: mongo
+    container_name: JobSeacrh_mongo_secondary-2
+    ports:
+      - 27003:27017
+    command: mongod --replSet "rs0"
+    environment:
+      - MONGO_INITDB_REPLICASET=rs0
+    volumes:
+      - ./mongodb/secondary_2:/data/db
+    restart: always
+    networks:
+      - mongo_replica
+
+  redis:
+    image: redis:latest
+    container_name: JobSearch_redis
+    ports:
+      - "6379:6379"
+    restart: always
+
+  jobsearch:
+    image: rabbitmq:3-management
+    container_name: JobSearch
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    restart: always
+
+networks:
+  mongo_replica:
+    driver: bridge
+volumes:
+  mongo_primary:
+  mongo_secondary_1:
+  mongo_secondary_2:
+
+
+

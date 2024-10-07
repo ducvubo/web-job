@@ -1,0 +1,16 @@
+mongo-url = "mongodb://localhost:27001/JobSerach?directConnection=true" 
+elasticsearch-urls = ["https://localhost:9200/"]
+elasticsearch-user = "elastic"
+elasticsearch-password = "secret"
+direct-read-namespaces = ["databasename.Collection"]
+change-stream-namespaces = ["databasename.Collection"] 
+[logs]
+error = "./logs/error.log" 
+[[mapping]]
+namespace = "databasename.Collection" 
+index = "JobSerach"
+ 
+[[script]]
+namespace = "databasename.Collection"
+path = "./scripts/collection_name.js"
+routing = true

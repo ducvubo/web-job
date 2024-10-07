@@ -1,0 +1,16 @@
+version: '3' 
+services:
+  monstache:        
+    image: rwynn/monstache:latest        
+    container_name: JobSeacrh_Monstache     
+    working_dir: /monstache        
+    command: -f ./config.toml        
+    volumes:          
+      - ./monstache:/monstache/        
+    ports:          
+      - "8080:8080"        
+    restart: always        
+
+networks:  
+  app-network:    
+    driver: bridge
